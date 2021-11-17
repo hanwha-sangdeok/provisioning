@@ -32,6 +32,91 @@ providers
 
 ### Homebrew on OS X
 
+* Install the HashiCorp tap
 ```
 $ brew tap hashicorp/tap
+```
+
+* Install Terraform
+```
+$ brew install hashicorp/tap/terraform
+```
+
+* Update Homebrew
+```
+$ brew update
+```
+
+* Download and use the latest Terraform version
+```
+brew upgrade hashicorp/tap/terraform
+==> Upgrading 1 outdated package:
+hashicorp/tap/terraform 0.15.3 -> 1.0.0
+==> Upgrading hashicorp/tap/terraform 0.15.3 -> 1.0.0
+```
+
+* Verify the installation
+```
+$ terraform -help
+Usage: terraform [-version] [-help] <command> [args]
+...
+```
+
+* install the autocomplete package.
+```
+$ terraform -install-autocomplete
+```
+
+* Start Docker
+```
+$ open -a Docker
+```
+
+* Create a directory
+```
+$ mkdir learn-terraform-docker-container
+$ cd learn-terraform-docker-container
+```
+
+* Create main.tf file
+```
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.13.0"
+    }
+  }
+}
+
+provider "docker" {}
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.latest
+  name  = "tutorial"
+  ports {
+    internal = 80
+    external = 8000
+  }
+}
+```
+
+* Initialize the project
+```
+$ terraform init
+```
+
+* Provision the NGINX server container 
+```
+$ terraform apply
+```
+
+* Stop the container
+```
+$ terraform destroy
 ```
