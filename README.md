@@ -28,7 +28,7 @@
 - 코드로 인프라를 배포한다는 것은 인프라를 모듈식 구성 요소로 분할해 자동화를 통해 다양한 방식으로 결합가능을 의미
 
 
-[**Terraform**](https://www.notion.so/Terraform-0da6624d531d48c1b241cd7d1c73cdad)
+### Terraform
 
 - 선언적(declarative)이며 immutable infrastructure를 지향
 
@@ -37,7 +37,7 @@
 - Infra 구성에 적합
 - 불변성(immutability)를 염두에 두고 설계되어 원하는 상태에 있도록 계속 유지할 수 있도록 변하지 않는 인프라를 기본적인 방식으로 처리
 
-[Ansible](https://www.notion.so/Ansible-d47c45bd36b640a19e7aa80914324261)
+### Ansible
 
 - 절차적(procedural)이며 mutable infrastructure를 지향
 
